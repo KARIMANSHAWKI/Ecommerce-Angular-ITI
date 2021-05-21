@@ -12,4 +12,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signin(form:any){
+      console.log(form);
+      
+  }
+
 }
