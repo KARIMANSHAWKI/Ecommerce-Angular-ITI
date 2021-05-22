@@ -9,7 +9,7 @@ export class GoodsService {
   constructor(private fs:AngularFirestore) { }
 
   getAllGoods(){
-    return this.fs.collection('goods').valueChanges({idField : 'id'})
+    return this.fs.collection('goods').valueChanges()
   }
 }
 
