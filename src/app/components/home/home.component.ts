@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Good } from 'src/app/interfaces/goods.interface';
+import { GoodsService } from '../../services/goods.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,16 @@ import { Good } from 'src/app/interfaces/goods.interface';
 })
 export class HomeComponent implements OnInit {
 
-  goods: Good[] = [
-     {name:'screen', price:2000, photoUrl:'assets/1.jpg'},
-     {name:'keyboard', price:2400, photoUrl:'assets/2.jpg'},
-     {name:'mouse', price:3200, photoUrl:'assets/3.jpg'},
-     {name:'head Phone', price:2800, photoUrl:'assets/4.jpg'}
-  ]
+  goods: Good[]=[]
 
-  constructor() { }
+  constructor(private gs:GoodsService) {
+    
+   }
 
   ngOnInit(): void {
+    // this.gs.getAllGoods().subscribe(data => this.goods = data)
+    
+    
   }
 
   addToCart(index:number){

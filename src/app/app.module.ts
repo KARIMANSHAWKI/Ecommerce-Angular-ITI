@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms'
-
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +16,6 @@ import { GoodsComponent } from './components/goods/goods.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,15 +27,25 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     OrdersComponent,
     GoodsComponent,
     NotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyAhscYBl9sbtka0_ojiAQF0Ofxs0ab2OtY',
+      authDomain: 'ecommerce-2fdd3.firebaseapp.com',
+      projectId: 'ecommerce-2fdd3',
+      storageBucket: 'ecommerce-2fdd3.appspot.com',
+      messagingSenderId: '160213326028',
+      appId: '1:160213326028:web:6f868b0d799d80e340ca69',
+      measurementId: 'G-Y2G15JE996',
+    }),
+    AngularFirestoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
