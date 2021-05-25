@@ -35,13 +35,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NgbModule,
     FormsModule,
     AngularFireModule.initializeApp({
-      apiKey: 'AIzaSyAhscYBl9sbtka0_ojiAQF0Ofxs0ab2OtY',
-      authDomain: 'ecommerce-2fdd3.firebaseapp.com',
-      projectId: 'ecommerce-2fdd3',
-      storageBucket: 'ecommerce-2fdd3.appspot.com',
-      messagingSenderId: '160213326028',
-      appId: '1:160213326028:web:6f868b0d799d80e340ca69',
-      measurementId: 'G-Y2G15JE996',
+      apiKey: "AIzaSyD8_91d8G-LukQJs0T_vXtYRT2mX8LyKXI",
+      authDomain: "tsawq-1c865.firebaseapp.com",
+      projectId: "tsawq-1c865",
+      storageBucket: "tsawq-1c865.appspot.com",
+      messagingSenderId: "489292346334",
+      appId: "1:489292346334:web:e015b32386891e325c234f",
+      measurementId: "G-EV8J4D4B6Z"
     }),
     AngularFirestoreModule
   ],

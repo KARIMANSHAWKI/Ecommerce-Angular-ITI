@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.gs.getAllGoods().subscribe(data => this.goods = data)
+    this.gs.getAllGoods().subscribe((data: Good[]) => this.goods = data)
     
     
   }
