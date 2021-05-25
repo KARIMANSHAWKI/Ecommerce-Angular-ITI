@@ -1,74 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">Taswoq</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="toggleNav()"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" (click)="toggleNav()" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div
-      class="collapse navbar-collapse"
-      [class.show]="isOpen"
-      id="navbarSupportedContent"
-    >
+    <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a
-            class="nav-link"
-            aria-current="page"
-            routerLink="/"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Home</a
-          >
+          <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active"
-            >Cart</a
-          >
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admin" routerLinkActive="active"
-            >Dashboard</a
-          >
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active"
-            >Cart</a
-          >
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
         </li>
       </ul>
-      <div  class="d-flex">
-        <li class="nav-item">
-          <a
-            class="nav-link right"
-            routerLink="/login"
-            routerLinkActive="active"
-            >SignIn</a
-          >
+      <div class="d-flex">
+        <li class="nav-item" *ngIf="!isUser">
+          <a class="nav-link right" routerLink="/login" routerLinkActive="active">SignIn</a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link right"
-            routerLink="/signup"
-            routerLinkActive="active"
-            >SignUp</a
-          >
+        <li class="nav-item" *ngIf="!isUser">
+          <a class="nav-link right" routerLink="/signup" routerLinkActive="active">SignUp</a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link btn btn-danger"
-            routerLink="/logout"
-            routerLinkActive="active right"
-            >Logout</a
-          >
+        <li class="nav-item" *ngIf="isUser">
+          <a class="nav-link btn btn-danger" routerLinkActive="active right" (click)='logout()'>Logout</a>
         </li>
       </div>
     </div>

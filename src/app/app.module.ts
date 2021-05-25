@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,15 +36,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NgbModule,
     FormsModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyD8_91d8G-LukQJs0T_vXtYRT2mX8LyKXI",
-      authDomain: "tsawq-1c865.firebaseapp.com",
-      projectId: "tsawq-1c865",
-      storageBucket: "tsawq-1c865.appspot.com",
-      messagingSenderId: "489292346334",
-      appId: "1:489292346334:web:e015b32386891e325c234f",
-      measurementId: "G-EV8J4D4B6Z"
+      apiKey: 'AIzaSyD8_91d8G-LukQJs0T_vXtYRT2mX8LyKXI',
+      authDomain: 'tsawq-1c865.firebaseapp.com',
+      projectId: 'tsawq-1c865',
+      storageBucket: 'tsawq-1c865.appspot.com',
+      messagingSenderId: '489292346334',
+      appId: '1:489292346334:web:e015b32386891e325c234f',
+      measurementId: 'G-EV8J4D4B6Z',
     }),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,35 +1,18 @@
 <div class="container">
   <div class="body">
     <h2>SignUp</h2>
-    <form #f="ngForm" (ngSubmit)="signup(f)"
-    >
-      <input
-        ngModel
-        type="text"
-        name="name"
-        #name="ngModel"
-        class="form-control"
-        placeholder="Name.."
-        required
-      />
+    <form #f="ngForm" (ngSubmit)="signup(f)">
+      <input ngModel type="text" name="name" #name="ngModel" class="form-control" placeholder="Name.." required />
       <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
         Name is required!
       </div>
-      <input
-        ngModel
-        type="email"
-        name="email"
-        #email="ngModel"
-        class="form-control"
-        placeholder="Email.."
-        required
-        email
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="email.touched && email.errors?.required"
-      >
+      <input ngModel type="email" name="email" #email="ngModel" class="form-control" placeholder="Email.." required
+        email />
+      <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">
         Email is required!
+      </div>
+      <div class="alert alert-danger" *ngIf="afterSubmitErrorMessage">
+        {{afterSubmitErrorMessage}}
       </div>
       <!-- <div
         class="alert alert-danger"
@@ -37,58 +20,27 @@
       >
         Invalid email format!
       </div> -->
-      <input
-        ngModel
-        type="password"
-        name="password"
-        #password="ngModel"
-        class="form-control"
-        placeholder="Password"
-        required
-        minlength="6"
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="password.touched && password.errors?.required"
-      >
+      <input ngModel type="password" name="password" #password="ngModel" class="form-control" placeholder="Password"
+        required minlength="6" />
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">
         Password is required!
       </div>
-      <div
-        class="alert alert-danger"
-        *ngIf="password.touched && password.errors?.minlength"
-      >
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">
         Password should be 6+ charachters
       </div>
-      <input
-        type="password"
-        ngModel
-        class="form-control"
-        name="confirm"
-        #passwordConfirm="ngModel"
-        placeholder="Confirm Password"
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="
+      <input type="password" ngModel class="form-control" name="confirm" #passwordConfirm="ngModel"
+        placeholder="Confirm Password" />
+      <div class="alert alert-danger" *ngIf="
           passwordConfirm.value !== password.value && passwordConfirm.touched
-        "
-      >
+        ">
         Passwords are not equal!
       </div>
-      <input
-        type="text"
-        ngModel
-        name="address"
-        class="form-control"
-        placeholder="Address"
-      />
-      
-      <button
-        class="btn btn-primary mt-4"
-        [disabled]="f.invalid || passwordConfirm.value !== password.value"
-      >
+      <input type="text" ngModel name="address" class="form-control" placeholder="Address" />
+
+      <button class="btn btn-primary mt-4" [disabled]="f.invalid || passwordConfirm.value !== password.value">
         Create Account
       </button>
+
     </form>
   </div>
 </div>

@@ -1,5 +1,6 @@
-export interface Good{
-    name? : string,
-    price? : Number,
-    photoUrl? : string
+export interface Good {
+  id?: Number;
+  name?: string;
+  price?: Number;
+  photoUrl?: string;
 }
