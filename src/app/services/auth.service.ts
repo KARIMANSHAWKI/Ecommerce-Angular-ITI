@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   user: Observable<any>;
+  userId: string = '';
   constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.user;
+    this.user.subscribe((result) => {
+      this.userId = result.uid;
+    });
   }
 
   signup(email: string, password: string) {

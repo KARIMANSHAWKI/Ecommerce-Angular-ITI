@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Good } from 'src/app/interfaces/goods.interface';
@@ -11,7 +12,9 @@ import { GoodsService } from '../../services/goods.service';
 export class HomeComponent implements OnInit {
   goods: Good[] = [];
   goodObservable: Subscription | undefined;
-  constructor(private gs: GoodsService) {}
+  ObendAddIndex: number = -1;
+  ObendAddAmount: number | undefined;
+  constructor(private gs: GoodsService, private cartSer: CartService) {}
 
   ngOnInit(): void {
     // this.gs.getAllGoods().subscribe((data: Good[]) => this.goods = data)
@@ -30,6 +33,16 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(index: number) {
-    console.log('added', this.goods[index]);
+    this.ObendAddIndex = index;
+  }
+
+  buy() {
+    let selectedGood = this.goods[this.ObendAddIndex];
+    let data = {
+      name: selectedGood.name,
+      amount: +(this.ObendAddAmount || 0),
+      price: selectedGood.price,
+    };
+    this.cartSer.addToCart(data);
   }
 }
