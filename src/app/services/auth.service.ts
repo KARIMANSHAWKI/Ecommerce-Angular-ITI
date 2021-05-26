@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.user;
     this.user.subscribe((result) => {
-      this.userId = result.uid;
+      this.userId = result?.uid;
     });
   }
 
