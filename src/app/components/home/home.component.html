@@ -7,10 +7,10 @@
           <div class="card-body">
             <h5 class="card-title">{{ good.name | titlecase }}</h5>
             <p class="card-text">{{ good.price }}</p>
-            <button *ngIf="ObendAddIndex!==i" class="btn btn-primary" (click)="addToCart(i)">Add To Cart</button>
+            <button *ngIf="ObendAddIndex!==i" class="btn btn-primary" (click)="addToCart(i)">Choose Qusntity</button>
             <div *ngIf="ObendAddIndex===i">
               <input type="number" class="form-control" placeholder="Amount (Kg)" [(ngModel)]='ObendAddAmount' />
-              <button class=" btn btn-primary" (click)="buy()">Buy</button>
+              <button class=" btn btn-primary" (click)="buy()">Add to chart</button>
             </div>
           </div>
         </div>

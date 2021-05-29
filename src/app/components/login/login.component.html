@@ -2,20 +2,9 @@
   <div class="body">
     <h2>SignIn</h2>
     <form #f="ngForm" (ngSubmit)="signin(f)">
-      <input
-        ngModel
-        type="email"
-        name="email"
-        #email="ngModel"
-        class="form-control"
-        placeholder="Email.."
-        required
-        email
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="email.touched && email.errors?.required"
-      >
+      <input ngModel type="email" name="email" #email="ngModel" class="form-control" placeholder="Email.." required
+        email />
+      <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">
         Email is required!
       </div>
       <!-- <div
@@ -24,35 +13,21 @@
         >
           Invalid email format!
         </div> -->
-      <input
-        ngModel
-        type="password"
-        name="password"
-        #password="ngModel"
-        class="form-control"
-        placeholder="Password"
-        required
-        minlength="6"
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="password.touched && password.errors?.required"
-      >
+      <input ngModel type="password" name="password" #password="ngModel" class="form-control" placeholder="Password"
+        required minlength="6" />
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">
         Password is required!
       </div>
-      <div
-        class="alert alert-danger"
-        *ngIf="password.touched && password.errors?.minlength"
-      >
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">
         Password should be 6+ charachters
       </div>
-
-      <button
-        class="btn btn-primary mt-4"
-        [disabled]="f.invalid"
-      >
+      <button class="btn btn-primary mt-4" [disabled]="f.invalid">
         Login
       </button>
+      <br />
+      <div class="alert alert-danger" *ngIf="signInError">
+        {{signInError}}
+      </div>
     </form>
   </div>
 </div>

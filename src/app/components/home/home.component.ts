@@ -42,7 +42,9 @@ export class HomeComponent implements OnInit {
       name: selectedGood.name,
       amount: +(this.ObendAddAmount || 0),
       price: selectedGood.price,
+      photoUrl: selectedGood.photoUrl,
     };
     this.cartSer.addToCart(data);
+    this.ObendAddIndex = -1;
   }
 }

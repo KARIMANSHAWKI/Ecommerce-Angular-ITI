@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule  } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { GoodsComponent } from './components/goods/goods.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserOrdersComponent } from './components/user-orders/user-orders.component';
+import { EditGoodsComponent } from './components/edit-goods/edit-goods.component';
+import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     GoodsComponent,
     NotFoundComponent,
     NavbarComponent,
+    UserOrdersComponent,
+    EditGoodsComponent,
+    AdminOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     }),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

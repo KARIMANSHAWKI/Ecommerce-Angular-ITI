@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="body">
+        <div *ngFor="let order of orders;index as j">
+            <div class="order-header">
+                <h4>{{order.date| date: "short" }}</h4>
+                <button class="btn btn-danger" (click)='moveToHistory(j)'>Move to History</button>
+            </div>
+            <input *ngIf="order.state=='init'" (click)='alterState(j,"complete")' type="checkbox"  class="btn-check" id={{order.id}}  autocomplete="off">
+            <input *ngIf="order.state=='complete'" (click)='alterState(j,"init")' type="checkbox" checked  class="btn-check" id={{order.id}}   autocomplete="off">
+            <label class="btn btn-outline-primary" for={{order.id}}>Complete</label><br>
+            <span class="badge bg-info text-dark" *ngIf="order.state=='init'">{{order.state}}</span>
+            <span class="badge bg-success text-dark" *ngIf="order.state=='finish'">{{order.state}}</span>
+            <div class="row">
+                <div class="col col-12 col-md-6 col-lg-3" *ngFor="let good of order.items; index as i">
+                    <div class="card" style="width: 18rem">
+                        <img [src]="good.photoUrl" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ good.name | titlecase }}</h5>
+                            <p class="card-text">Item Price:{{ good.price }}</p>
+                            <p class="card-text">Item Amount:{{ good.amount }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>

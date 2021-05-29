@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="body">
+        <div class="row">
+            <div class="col col-12 col-md-6 col-lg-3" *ngFor="let good of goods; index as i">
+                <div class="card" style="width: 18rem">
+                    <img [src]="good.photoUrl" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <form #form='ngForm' (ngSubmit)='editGood(form,i)'>
+                            <label>Name:</label>
+                            <input ngModel type="text" name='name' class="form-control" [(ngModel)]='good.name'
+                                required />
+                            <label>Price:</label>
+                            <input ngModel type="number" name='price' class="form-control" [(ngModel)]='good.price '
+                                required />
+                            <input class="btn btn-primary" type='submit' value="Save" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <input ngModel type="text" name='name' class="form-control" placeholder="Name" required />
+        <input ngModel type="number" name='price' class="form-control" placeholder="Price" required />
+        <input ngModel type="file" name='image' class="form-control" placeholder="Image" required #image />
+        <input class="btn btn-primary" type='submit' value="Add" [disabled]='f.invalid' /> -->

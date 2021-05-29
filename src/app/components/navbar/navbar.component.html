@@ -13,13 +13,19 @@
             [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+          <a class="nav-link" *ngIf="isUser&&!isAdmin" routerLink="/cart" routerLinkActive="active">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Dashboard</a>
+          <a class="nav-link" *ngIf="isUser&&!isAdmin" routerLink="/user/orders" routerLinkActive="active">Orders</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAdmin">
           <a class="nav-link" routerLink="/goods/create" routerLinkActive="active">Add Good</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="admin/edit-goods" routerLinkActive="active">Edit Goods</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="admin/orders" routerLinkActive="active">Manage Orders</a>
         </li>
       </ul>
       <div class="d-flex">

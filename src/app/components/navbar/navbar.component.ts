@@ -11,12 +11,16 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   isUser: boolean = false;
+  isAdmin: boolean = false;
   constructor(private auhtServ: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.auhtServ.user.subscribe((user) => {
       if (user) this.isUser = true;
       else this.isUser = false;
+      this.auhtServ.userData.subscribe((data) => {
+        this.isAdmin = data.isadmin;
+      });
     });
   }
 

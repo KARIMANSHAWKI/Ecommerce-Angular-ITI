@@ -37,4 +37,13 @@ export class GoodsService {
       });
     });
   }
+
+  editGood(id, data) {
+  console.log("🚀 ~ file: goods.service.ts ~ line 42 ~ GoodsService ~ editGood ~ id", id)
+  console.log("🚀 ~ file: goods.service.ts ~ line 42 ~ GoodsService ~ editGood ~ data", data)
+    
+    return this.fs.doc(`goods/${id}`).update({
+      ...data,
+    });
+  }
 }

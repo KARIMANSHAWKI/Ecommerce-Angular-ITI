@@ -28,4 +28,10 @@ export class CartService {
   deleteItem(id: string | undefined) {
     return this.fs.doc(`users/${this.authServ.userId}/cart/${id}`).delete();
   }
+
+  deleteCart(cartItems: Good[]) {
+    cartItems.forEach((item) => {
+      this.deleteItem(item.id);
+    });
+  }
 }
